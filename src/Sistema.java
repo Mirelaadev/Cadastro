@@ -9,13 +9,16 @@ public class Sistema {
         int opcao;
         do {
             System.out.println("Escolha uma opção: \n" + "1 - Cadastrar\n"
-                    + "2 - Listar\n" + "3 - Buscar\n" + "4 - Excluir\n" + "5 - Sair");
+                    + "2 - Listar\n" + "3 - Buscar\n" + "4 - Editar\n" + "5 - Excluir\n" + "0 - Sair");
              opcao = entrada.nextInt();
              entrada.nextLine();
 
             if(opcao == 1){
                 //OBJETO SÓ É CRIADO QUANDO A OPÇÃO DE CADASTAR É ESCOLHIDA
                 Cliente cliente = new Cliente();
+
+                System.out.println("Digite o CPF: ");
+                cliente.setCpf(entrada.next());
 
                 System.out.println("Digite o nome: ");
                 cliente.setNome(entrada.next());
@@ -39,6 +42,28 @@ public class Sistema {
                 controle.buscarCliente(nome);
 
             }else if(opcao == 4){
+                System.out.println("Qual cliente você deseja editar?");
+                String nomeEditar = entrada.nextLine();
+
+                //Variavel do tipo cliente que vai armazenar o cliente que usuario digitou
+                Cliente cliente = controle.buscarCliente(nomeEditar);
+
+                if(cliente != null) {
+                    System.out.println("Digite o novo nome: ");
+                    cliente.setNome(entrada.nextLine());
+
+                    System.out.println("Digite a idade: ");
+                    cliente.setIdade(entrada.nextInt());
+                    entrada.nextLine();
+
+                    System.out.println("Digite o email: ");
+                    cliente.setEmail(entrada.next());
+
+                    System.out.println("Cliente atualizado com sucesso!");
+
+                }
+
+            }else if(opcao == 5){
                 System.out.print("Digite o nome do cliente: ");
                 String nome = entrada.nextLine();
                 controle.excluirCliente(nome);

@@ -13,29 +13,32 @@ public class ControleCliente {
             System.out.println("Nenhum cliente cadastrado!");
         }
         for (Cliente cliente : clientes) {
-            System.out.println("Nome: " + cliente.getNome() +  " | Idade: " + cliente.getIdade() +
-                    " | Email: " + cliente.getEmail()
-            ); } }
+            System.out.println("Cpf: " + cliente.getCpf() + " | Nome: " + cliente.getNome() +  " | Idade: " + cliente.getIdade() +
+                    " | Email: " + cliente.getEmail());
+        } }
 
-    public void buscarCliente(String nome){
+    //Esse metodo vai buscar e devolver um Cliente
+    public Cliente buscarCliente(String nome){
         for (Cliente cliente : clientes) {
             if (cliente.getNome().equalsIgnoreCase(nome)) {
-                System.out.println(
-                        "Cliente encontrado: " +
-                                cliente.getNome() + " | " +
-                                cliente.getIdade() + " | " +
-                                cliente.getEmail()
+                System.out.println("Cliente encontrado: " + cliente.getCpf() +" | " + cliente.getNome()
+                        + " | " + cliente.getIdade() + " | " + cliente.getEmail()
                 );
-            } } }
+                return cliente;
+            } }
+    System.out.println("Cliente não encontrado");
+        return null;
+    }
     public void excluirCliente(String nome){
         for (Cliente cliente : clientes) {
             if (cliente.getNome().equalsIgnoreCase(nome)) {
                 System.out.println(
-                        "Cliente excluido: " +
-                                cliente.getNome() + " | " + cliente.getIdade() + " | " + cliente.getEmail()
+                        "Cliente excluido: " + cliente.getCpf() +" | " + cliente.getNome() + " | " + cliente.getIdade() +
+                                " | " + cliente.getEmail()
                 );
                 clientes.remove(nome);
             } } }
+
     }
 
 

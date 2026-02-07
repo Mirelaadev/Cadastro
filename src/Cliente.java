@@ -1,8 +1,16 @@
 public class Cliente {
+    private String cpf;
     private String nome;
     private int idade;
     private String email;
 
+
+    public String getCpf(){
+        return cpf;
+    }
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
     public String getNome() {
         return nome;
     }
