@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 
 public class ControleCliente {
-    ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    private ArrayList<Cliente> clientes;
 
+    public ControleCliente() {
+        this.clientes = new ArrayList<>();
+    }
     public void cadastrarCliente(Cliente cliente){
         clientes.add(cliente);
     }
@@ -11,6 +14,7 @@ public class ControleCliente {
         //O METODO ISEMPTY VERIFICA SE A QUANTIDADE DE STRING É = 0
         if(clientes.isEmpty()) {
             System.out.println("Nenhum cliente cadastrado!");
+            return;
         }
         for (Cliente cliente : clientes) {
             System.out.println("Cpf: " + cliente.getCpf() + " | Nome: " + cliente.getNome() +  " | Idade: " + cliente.getIdade() +

@@ -14,20 +14,23 @@ public class Sistema {
              entrada.nextLine();
 
             if(opcao == 1){
-                //OBJETO SÓ É CRIADO QUANDO A OPÇÃO DE CADASTAR É ESCOLHIDA
-                Cliente cliente = new Cliente();
 
                 System.out.println("Digite o CPF: ");
-                cliente.setCpf(entrada.next());
+                int cpf = entrada.nextInt();
+                entrada.nextLine();
 
                 System.out.println("Digite o nome: ");
-                cliente.setNome(entrada.next());
+                String nome = entrada.nextLine();
 
                 System.out.println("Digite a idade: ");
-                cliente.setIdade(entrada.nextInt());
+                int idade = entrada.nextInt();
+                entrada.nextLine();
 
                 System.out.println("Digite o email: ");
-                cliente.setEmail(entrada.next());
+                String email = entrada.nextLine();
+
+                //OBJETO SÓ É CRIADO QUANDO A OPÇÃO DE CADASTAR É ESCOLHIDA
+                Cliente cliente = new Cliente(cpf, nome, idade, email);
 
                 controle.cadastrarCliente(cliente);
                 System.out.println("Cliente cadastrado com sucesso!");
