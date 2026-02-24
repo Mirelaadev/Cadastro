@@ -16,7 +16,7 @@ public class Sistema {
             if(opcao == 1){
 
                 System.out.println("Digite o CPF: ");
-                int cpf = entrada.nextInt();
+                String cpf = entrada.next();
                 entrada.nextLine();
 
                 System.out.println("Digite o nome: ");
