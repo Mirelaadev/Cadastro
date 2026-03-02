@@ -24,8 +24,11 @@ public class Sistema {
 
                 System.out.println("Digite a idade: ");
                 int idade = entrada.nextInt();
+                while(idade <= 0 || idade > 120){
+                    System.out.println("Idade inválida. Digite a idade novamente: ");
+                    idade = entrada.nextInt();
+                }
                 entrada.nextLine();
-
                 System.out.println("Digite o email: ");
                 String email = entrada.nextLine();
 
@@ -71,7 +74,7 @@ public class Sistema {
                 String nome = entrada.nextLine();
                 controle.excluirCliente(nome);
             }
-        } while(opcao != 4);
+        } while(opcao != 0);
 
         }
 
