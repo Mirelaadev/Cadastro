@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class Sistema {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
@@ -10,25 +10,32 @@ public class Sistema {
         do {
             System.out.println("Escolha uma opção: \n" + "1 - Cadastrar\n"
                     + "2 - Listar\n" + "3 - Buscar\n" + "4 - Editar\n" + "5 - Excluir\n" + "0 - Sair");
-             opcao = entrada.nextInt();
-             entrada.nextLine();
+             opcao = Integer.parseInt(entrada.nextLine());
 
             if(opcao == 1){
 
                 System.out.println("Digite o CPF: ");
-                String cpf = entrada.next();
-                entrada.nextLine();
+                String cpf = entrada.nextLine();
 
                 System.out.println("Digite o nome: ");
                 String nome = entrada.nextLine();
+                int idade  = 0;
+                boolean idadeValida = false;
 
-                System.out.println("Digite a idade: ");
-                int idade = entrada.nextInt();
-                while(idade <= 0 || idade > 120){
-                    System.out.println("Idade inválida. Digite a idade novamente: ");
-                    idade = entrada.nextInt();
+                while(!idadeValida){
+                    try{
+                        System.out.println("Digite a idade: ");
+                        idade = Integer.parseInt(entrada.nextLine());
+                        while(idade <= 0 || idade > 120){
+                            System.out.println("Idade inválida. Digite a idade novamente: ");
+                            idade = Integer.parseInt(entrada.nextLine());
+                        }
+                        idadeValida = true;
+                    } catch (NumberFormatException e){
+                        System.out.println("Erro: A idade precisa ser número.");
+                    }
                 }
-                entrada.nextLine();
+
                 System.out.println("Digite o email: ");
                 String email = entrada.nextLine();
 
